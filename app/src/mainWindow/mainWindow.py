@@ -12,6 +12,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.apiUrl = "https://TON-DOMAINE.up.railway.app"
+
         self.userId = None
         self.currentPlannerId = None
         self.token = None
@@ -162,7 +164,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.post(
-                "http://127.0.0.1:8000/users",
+                f"{self.apiUrl}/users",
                 json={
                     "userName": userName,
                     "psw": psw
@@ -212,7 +214,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.post(
-                "http://127.0.0.1:8000/login",
+                f"{self.apiUrl}/login",
                 json={
                     "userName": userName,
                     "psw": psw
@@ -237,7 +239,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                f"http://127.0.0.1:8000/users/{self.userId}/planners",
+                ff"{self.apiUrl}/users/{self.userId}/planners",
                 timeout=5
             )
 
@@ -254,7 +256,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                "http://127.0.0.1:8000/planners",
+                f"{self.apiUrl}/planners",
                 timeout=5
             )
 
@@ -284,7 +286,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.post(
-                "http://127.0.0.1:8000/planners",
+                f"{self.apiUrl}/planners",
                 json={
                     "name": name,
                     "userId": self.userId
@@ -330,7 +332,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.post(
-                "http://127.0.0.1:8000/planners/join",
+                f"{self.apiUrl}/planners/join",
                 json={
                     "name": plannerName,
                     "ownerId": ownerId,
@@ -383,7 +385,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                "http://127.0.0.1:8000/meals",
+                f"{self.apiUrl}/meals",
                 params={
                     "plannerId": plannerId
                 },
@@ -399,7 +401,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                "http://127.0.0.1:8000/ingredients",
+                f"{self.apiUrl}/ingredients",
                 params={
                     "plannerId": plannerId
                 },
@@ -457,7 +459,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.post(
-                "http://127.0.0.1:8000/meals",
+                f"{self.apiUrl}/meals",
                 json={
                     "plannerId": self.currentPlannerId,
                     "day": day,
@@ -492,7 +494,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.post(
-                "http://127.0.0.1:8000/ingredients",
+                f"{self.apiUrl}/ingredients",
                 json={
                     "plannerId": self.currentPlannerId,
                     "content": content
@@ -521,7 +523,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.put(
-                f"http://127.0.0.1:8000/ingredients/{item.ingredientId}",
+                ff"{self.apiUrl}/ingredients/{item.ingredientId}",
                 json={
                     "content": content
                 },
@@ -547,7 +549,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.delete(
-                f"http://127.0.0.1:8000/ingredients/{ingredientId}",
+                ff"{self.apiUrl}/ingredients/{ingredientId}",
                 timeout=5
             )
 
@@ -575,7 +577,7 @@ class MainWindow(QtWidgets.QMainWindow):
             try:
 
                 requests.delete(
-                    "http://127.0.0.1:8000/session",
+                    f"{self.apiUrl}/session",
                     headers={
                         "Authorization": f"Bearer {self.token}"
                     },
@@ -618,7 +620,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                "http://127.0.0.1:8000/session",
+                f"{self.apiUrl}/session",
                 headers={
                     "Authorization": f"Bearer {self.token}"
                 },
@@ -656,7 +658,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                f"http://127.0.0.1:8000/users/{self.userId}/planners",
+                ff"{self.apiUrl}/users/{self.userId}/planners",
                 timeout=5
             )
 
@@ -673,7 +675,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                "http://127.0.0.1:8000/planners",
+                f"{self.apiUrl}/planners",
                 timeout=5
             )
 
