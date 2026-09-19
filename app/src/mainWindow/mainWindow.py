@@ -12,7 +12,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.apiUrl = "https://TON-DOMAINE.up.railway.app"
+        self.apiUrl = "mealplanner-production-e25d.up.railway.app"
 
         self.userId = None
         self.currentPlannerId = None
