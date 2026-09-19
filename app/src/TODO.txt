@@ -1,0 +1,1 @@
+lorsqu'on créé un user avec le meme pseudo qu'un autre user, on change le mdp et on remplace le user
