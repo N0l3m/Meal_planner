@@ -239,7 +239,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                ff"{self.apiUrl}/users/{self.userId}/planners",
+                f"{self.apiUrl}/users/{self.userId}/planners",
                 timeout=5
             )
 
@@ -523,7 +523,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.put(
-                ff"{self.apiUrl}/ingredients/{item.ingredientId}",
+                f"{self.apiUrl}/ingredients/{item.ingredientId}",
                 json={
                     "content": content
                 },
@@ -549,7 +549,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
 
             response = requests.delete(
-                ff"{self.apiUrl}/ingredients/{ingredientId}",
+                f"{self.apiUrl}/ingredients/{ingredientId}",
                 timeout=5
             )
 
@@ -658,7 +658,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # -------------------------
 
             response = requests.get(
-                ff"{self.apiUrl}/users/{self.userId}/planners",
+                f"{self.apiUrl}/users/{self.userId}/planners",
                 timeout=5
             )
 
