@@ -251,7 +251,7 @@ class PlannerListPage(QtWidgets.QWidget):
             self.createPlannerButton
         )
 
-       # -------------------------
+        # -------------------------
         # Join planner
         # -------------------------
 
@@ -265,29 +265,32 @@ class PlannerListPage(QtWidgets.QWidget):
             5
         )
 
-        joinLayout.addWidget(
-            self.joinPlannerButton,
-            0, 0, 2, 1
-        )
-
+        # Owner
         joinLayout.addWidget(
             self.ownerComboBox,
-            0, 1
+            0, 0
         )
 
+        # Planner name
         joinLayout.addWidget(
             self.joinPlannerName,
-            1, 1
+            1, 0
+        )
+
+        # Join button
+        joinLayout.addWidget(
+            self.joinPlannerButton,
+            0, 1, 2, 1
         )
 
         joinLayout.setColumnStretch(
             0,
-            0
+            1
         )
 
         joinLayout.setColumnStretch(
             1,
-            1
+            0
         )
         # -------------------------
         # Main layout
