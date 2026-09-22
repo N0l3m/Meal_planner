@@ -154,21 +154,21 @@ class PlannerListPage(QtWidgets.QWidget):
 
         createStyle = """
         QLineEdit {
-            background-color: #DCEBFF;
+            background-color: #3F6FA3;
             border: 1px solid #AFCBEB;
             border-radius: 6px;
             padding: 6px;
         }
 
         QPushButton {
-            background-color: #DCEBFF;
+            background-color: #3F6FA3;
             border: 1px solid #AFCBEB;
             border-radius: 6px;
             padding: 6px;
         }
 
         QPushButton:hover {
-            background-color: #C8DEFA;
+            background-color: #315A87;
         }
         """
 
@@ -206,28 +206,28 @@ class PlannerListPage(QtWidgets.QWidget):
 
         joinStyle = """
         QLineEdit {
-            background-color: #F9DCDC;
+            background-color: #3F7A5A;
             border: 1px solid #E5B5B5;
             border-radius: 6px;
             padding: 6px;
         }
 
         QComboBox {
-            background-color: #F9DCDC;
-            border: 1px solid #E5B5B5;
+            background-color: #3F7A5A;
+            border: 1px solid #326247;
             border-radius: 6px;
             padding: 6px;
         }
 
         QPushButton {
             background-color: #F9DCDC;
-            border: 1px solid #E5B5B5;
+            border: 1px solid #326247;
             border-radius: 6px;
             padding: 6px;
         }
 
         QPushButton:hover {
-            background-color: #F3C5C5;
+            background-color: #326247;
         }
         """
 
