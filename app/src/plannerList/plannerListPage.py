@@ -141,7 +141,7 @@ class PlannerListPage(QtWidgets.QWidget):
         self.createPlannerName = QtWidgets.QLineEdit()
 
         self.createPlannerName.setPlaceholderText(
-            "Planner name"
+            "Planner Name to create"
         )
 
         self.createPlannerButton = QtWidgets.QPushButton(
@@ -165,7 +165,7 @@ class PlannerListPage(QtWidgets.QWidget):
         self.joinPlannerName = QtWidgets.QLineEdit()
 
         self.joinPlannerName.setPlaceholderText(
-            "Planner name"
+            "Planner name to join"
         )
 
         self.joinPlannerButton = QtWidgets.QPushButton(
@@ -257,28 +257,16 @@ class PlannerListPage(QtWidgets.QWidget):
 
         joinLayout = QtWidgets.QVBoxLayout()
 
-        
-
         joinLayout.addWidget(
             self.joinPlannerName
         )
 
-        joinButtonLayout = QtWidgets.QHBoxLayout()
-
-        joinButtonLayout.addStretch()
-
-        joinButtonLayout.addWidget(
+        joinLayout.addWidget(
             self.joinPlannerButton
         )
 
         joinLayout.addWidget(
             self.ownerComboBox
-        )
-
-        joinButtonLayout.addStretch()
-
-        joinLayout.addLayout(
-            joinButtonLayout
         )
 
         # -------------------------
