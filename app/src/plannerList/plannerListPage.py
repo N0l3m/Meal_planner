@@ -152,6 +152,34 @@ class PlannerListPage(QtWidgets.QWidget):
             120
         )
 
+        createStyle = """
+        QLineEdit {
+            background-color: #DCEBFF;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 6px;
+        }
+
+        QPushButton {
+            background-color: #DCEBFF;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 6px;
+        }
+
+        QPushButton:hover {
+            background-color: #C8DEFA;
+        }
+        """
+
+        self.createPlannerName.setStyleSheet(
+            createStyle
+        )
+
+        self.createPlannerButton.setStyleSheet(
+            createStyle
+        )
+
         # -------------------------
         # Join planner
         # -------------------------
@@ -174,6 +202,45 @@ class PlannerListPage(QtWidgets.QWidget):
 
         self.joinPlannerButton.setFixedWidth(
             120
+        )
+
+        joinStyle = """
+        QLineEdit {
+            background-color: #F9DCDC;
+            border: 1px solid #E5B5B5;
+            border-radius: 6px;
+            padding: 6px;
+        }
+
+        QComboBox {
+            background-color: #F9DCDC;
+            border: 1px solid #E5B5B5;
+            border-radius: 6px;
+            padding: 6px;
+        }
+
+        QPushButton {
+            background-color: #F9DCDC;
+            border: 1px solid #E5B5B5;
+            border-radius: 6px;
+            padding: 6px;
+        }
+
+        QPushButton:hover {
+            background-color: #F3C5C5;
+        }
+        """
+
+        self.ownerComboBox.setStyleSheet(
+            joinStyle
+        )
+
+        self.joinPlannerName.setStyleSheet(
+            joinStyle
+        )
+
+        self.joinPlannerButton.setStyleSheet(
+            joinStyle
         )
 
     # =====================================================
