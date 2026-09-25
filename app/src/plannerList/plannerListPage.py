@@ -181,67 +181,67 @@ class PlannerListPage(QtWidgets.QWidget):
         )
 
         # -------------------------
-    # Join planner
-    # -------------------------
+        # Join planner
+        # -------------------------
 
-    self.ownerComboBox = QtWidgets.QComboBox()
+        self.ownerComboBox = QtWidgets.QComboBox()
 
-    self.ownerComboBox.setPlaceholderText(
-        "Owner"
-    )
+        self.ownerComboBox.setPlaceholderText(
+            "Owner"
+        )
 
-    self.joinPlannerName = QtWidgets.QLineEdit()
+        self.joinPlannerName = QtWidgets.QLineEdit()
 
-    self.joinPlannerName.setPlaceholderText(
-        "Planner name to join"
-    )
+        self.joinPlannerName.setPlaceholderText(
+            "Planner name to join"
+        )
 
-    self.joinPlannerButton = QtWidgets.QPushButton(
-        "Join"
-    )
+        self.joinPlannerButton = QtWidgets.QPushButton(
+            "Join"
+        )
 
-    self.joinPlannerButton.setFixedWidth(
-        120
-    )
+        self.joinPlannerButton.setFixedWidth(
+            120
+        )
 
-    joinStyle = """
-    QLineEdit {
-        background-color: #3F7A5A;
-        border: 1px solid #AFCBEB;
-        border-radius: 6px;
-        padding: 6px;
-    }
+        joinStyle = """
+        QLineEdit {
+            background-color: #3F7A5A;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 6px;
+        }
 
-    QComboBox {
-        background-color: #3F7A5A;
-        border: 1px solid #AFCBEB;
-        border-radius: 6px;
-        padding: 6px;
-    }
+        QComboBox {
+            background-color: #3F7A5A;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 6px;
+        }
 
-    QPushButton {
-        background-color: #3F7A5A;
-        border: 1px solid #AFCBEB;
-        border-radius: 6px;
-        padding: 6px;
-    }
+        QPushButton {
+            background-color: #3F7A5A;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 6px;
+        }
 
-    QPushButton:hover {
-        background-color: #326247;
-    }
-    """
+        QPushButton:hover {
+            background-color: #326247;
+        }
+        """
 
-    self.ownerComboBox.setStyleSheet(
-        joinStyle
-    )
+        self.ownerComboBox.setStyleSheet(
+            joinStyle
+        )
 
-    self.joinPlannerName.setStyleSheet(
-        joinStyle
-    )
+        self.joinPlannerName.setStyleSheet(
+            joinStyle
+        )
 
-    self.joinPlannerButton.setStyleSheet(
-        joinStyle
-    )
+        self.joinPlannerButton.setStyleSheet(
+            joinStyle
+        )
 
     # =====================================================
     # CONNECTIONS
