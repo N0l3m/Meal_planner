@@ -1,0 +1,13 @@
+# Environnements Python
+android-venv/
+
+# Roues Android téléchargées
+android-wheels/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Builds Android
+*.apk
+*.aab

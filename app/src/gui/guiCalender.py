@@ -143,6 +143,23 @@ class GuiCalender(QtWidgets.QWidget):
             self
         )
 
+        buttonSize = QtCore.QSize(
+            80,
+            35
+        )
+
+        self.undoButton.setFixedSize(
+            buttonSize
+        )
+
+        self.redoButton.setFixedSize(
+            buttonSize
+        )
+
+        self.clearTable.setFixedSize(
+            buttonSize
+        )
+
         self.buttonLayout = QtWidgets.QHBoxLayout()
 
         self.buttonLayout.addWidget(

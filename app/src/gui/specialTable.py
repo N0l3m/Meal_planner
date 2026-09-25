@@ -13,6 +13,13 @@ class SpecialTable(QtWidgets.QTableWidget):
     ):
         super().__init__(parent)
 
+        self.setStyleSheet("""
+            QTableCornerButton::section {
+                background-color: #1E1E1E;
+                border: none;
+            }
+        """)
+
         # -------------------------
         # Undo / Redo
         # -------------------------
