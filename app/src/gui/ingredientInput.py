@@ -20,6 +20,10 @@ class IngredientInput(QtWidgets.QWidget):
 
         self.input = QtWidgets.QLineEdit(self)
 
+        self.input.installEventFilter(
+            self
+        )
+
         self.input.setPlaceholderText(
             "Add an ingredient..."
         )
@@ -79,3 +83,24 @@ class IngredientInput(QtWidgets.QWidget):
 
         self.sendIngredient.emit(text)
         self.input.clear()
+
+
+    def eventFilter(self, watched, event):
+
+        if (
+            watched == self.input
+            and event.type() == QtCore.QEvent.KeyPress
+            and event.key() in (
+                QtCore.Qt.Key_Return,
+                QtCore.Qt.Key_Enter
+            )
+        ):
+
+            self.send()
+
+            return True
+
+        return super().eventFilter(
+            watched,
+            event
+        )

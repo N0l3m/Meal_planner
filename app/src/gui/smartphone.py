@@ -1,4 +1,4 @@
-from PySide6 import  QtWidgets, QtGui
+from PySide6 import QtWidgets, QtGui, QtCore
 from gui.guiCalender import GuiCalender
 
 class SmartphoneApi(GuiCalender):
@@ -29,15 +29,46 @@ class SmartphoneApi(GuiCalender):
         )
 
         tableFont = QtGui.QFont()
-        tableFont.setPointSize(8)
+        tableFont.setPointSize(12)
+        tableFont.setBold(True)
 
-        self.table.horizontalHeader().setFont(tableFont)
-        self.table.verticalHeader().setFont(tableFont)
+        self.table.horizontalHeader().setFont(
+            tableFont
+        )
+
+        self.table.verticalHeader().setFont(
+            tableFont
+        )
+
+        # -------------------------
+        # Taille des cellules
+        # -------------------------
+
+        self.table.verticalHeader().setSectionResizeMode(
+            QtWidgets.QHeaderView.Fixed
+        )
+
+        self.table.verticalHeader().setDefaultSectionSize(
+            70
+        )
+
+        # -------------------------
+        # Taille des headers
+        # -------------------------
+
+        self.table.horizontalHeader().setFixedHeight(
+            45
+        )
+
+        self.table.verticalHeader().setDefaultSectionSize(
+            70
+        )
+
+        self.table.verticalHeader().setMinimumWidth(
+            95
+        )
 
         self.table.horizontalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.Stretch
-        )
-        self.table.verticalHeader().setSectionResizeMode(
             QtWidgets.QHeaderView.Stretch
         )
 
@@ -118,6 +149,19 @@ class SmartphoneApi(GuiCalender):
 
         self.ingredientScroll.setWidget(
             self.ingredientList
+        )
+
+        self.ingredientScroll.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
+
+        self.ingredientScroll.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
+
+        QtWidgets.QScroller.grabGesture(
+            self.ingredientScroll.viewport(),
+            QtWidgets.QScroller.LeftMouseButtonGesture
         )
 
         layout.addWidget(
