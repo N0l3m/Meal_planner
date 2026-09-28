@@ -95,7 +95,7 @@ class SmartphoneApi(GuiCalender):
         )
 
         topLayout.setSpacing(
-            20
+            0
         )
 
         topLayout.addWidget(

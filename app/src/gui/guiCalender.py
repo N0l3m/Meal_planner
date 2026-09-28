@@ -160,11 +160,6 @@ class GuiCalender(QtWidgets.QWidget):
             buttonSize
         )
 
-
-        self.buttonLayout.setSpacing(
-            20
-        )
-
         self.buttonLayout = QtWidgets.QHBoxLayout()
 
         self.buttonLayout.addWidget(
