@@ -24,7 +24,7 @@ icon = /home/francsix/Documents/Programming/Meal_planner/android-venv/lib/python
 python_path = /home/francsix/Documents/Programming/Meal_planner/android-venv/bin/python3.11
 
 # python packages to install
-packages = Nuitka==4.1.1,requests
+packages = Nuitka==4.1.1
 
 # buildozer = for deploying Android application
 android_packages = buildozer==1.5.0,cython==0.29.33
@@ -32,18 +32,15 @@ android_packages = buildozer==1.5.0,cython==0.29.33
 [qt]
 
 # paths to required qml files. comma separated
-# normally all the qml files required by the project are added automatically
-# design studio projects include the qml files using qt resources
 qml_files = 
 
 # excluded qml plugin binaries
 excluded_qml_plugins = 
 
 # qt modules used. comma separated
-modules = Widgets,Gui,Core
+modules = Gui,Core,Widgets
 
 # qt plugins used by the application. only relevant for desktop deployment
-# for qt plugins used in android application see [android][plugins]
 plugins = 
 
 [android]
@@ -54,17 +51,21 @@ wheel_pyside = /home/francsix/Documents/Programming/Meal_planner/android-wheels/
 # path to shiboken wheel
 wheel_shiboken = /home/francsix/Documents/Programming/Meal_planner/android-wheels/shiboken6-6.11.2-6.11.2-cp311-cp311-android_aarch64.whl
 
-# plugins to be copied to libs folder of the packaged application. comma separated
+# plugins to be copied to libs folder of the packaged application
 plugins = platforms_qtforandroid
+
+# android sdk
+sdk_path = /home/francsix/Android/Sdk
+
+# android ndk
+ndk_path = /home/francsix/Android/Sdk/ndk/26.1.10909125
 
 [nuitka]
 
-# usage description for permissions requested by the app as found in the info.plist file
-# of the app bundle. comma separated
-# eg = extra_args = --show-modules --follow-stdlib
+# usage description for permissions requested by the app
 macos.permissions = 
 
-# mode of using nuitka. accepts standalone or onefile. default = onefile
+# mode of using nuitka
 mode = onefile
 
 # specify any extra nuitka arguments
@@ -73,25 +74,23 @@ extra_args = --quiet --noinclude-qt-translations
 [buildozer]
 
 # build mode
-# possible values = ["aarch64", "armv7a", "i686", "x86_64"]
-# release creates a .aab, while debug creates a .apk
 mode = debug
 
 # path to pyside6 and shiboken6 recipe dir
 recipe_dir = /home/francsix/Documents/Programming/Meal_planner/app/src/deployment/recipes
 
-# path to extra qt android .jar files to be loaded by the application
+# path to pyside6 jars
 jars_dir = /home/francsix/Documents/Programming/Meal_planner/app/src/deployment/jar/PySide6/jar
 
-# if empty, uses default ndk path downloaded by buildozer
+# android ndk
 ndk_path = /home/francsix/Android/Sdk/ndk/26.1.10909125
 
-# if empty, uses default sdk path downloaded by buildozer
+# android sdk
 sdk_path = /home/francsix/Android/Sdk
 
-# other libraries to be loaded at app startup. comma separated.
+# local libraries
 local_libs = plugins_platforms_qtforandroid
 
-# architecture of deployed platform
+# architecture
 arch = aarch64
 

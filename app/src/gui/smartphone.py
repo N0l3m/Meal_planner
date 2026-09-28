@@ -49,7 +49,7 @@ class SmartphoneApi(GuiCalender):
         )
 
         self.table.verticalHeader().setDefaultSectionSize(
-            70
+            50
         )
 
         # -------------------------
