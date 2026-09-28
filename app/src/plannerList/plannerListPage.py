@@ -40,10 +40,10 @@ class PlannerItemWidget(QtWidgets.QWidget):
         layout = QtWidgets.QVBoxLayout()
 
         layout.setContentsMargins(
-            10,
-            5,
-            10,
-            5
+            15,
+            8,
+            15,
+            8
         )
 
         layout.setSpacing(
@@ -494,7 +494,7 @@ class PlannerListPage(QtWidgets.QWidget):
         item.setSizeHint(
             QtCore.QSize(
                 0,
-                55
+                75
             )
         )
 

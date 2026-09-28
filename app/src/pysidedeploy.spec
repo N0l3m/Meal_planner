@@ -38,7 +38,7 @@ qml_files =
 excluded_qml_plugins = 
 
 # qt modules used. comma separated
-modules = Widgets,Core,Gui
+modules = Core,Gui,Widgets
 
 # qt plugins used by the application. only relevant for desktop deployment
 plugins = 
