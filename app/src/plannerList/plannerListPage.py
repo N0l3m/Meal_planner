@@ -47,7 +47,7 @@ class PlannerItemWidget(QtWidgets.QWidget):
         )
 
         layout.setSpacing(
-            0
+            20
         )
 
         layout.addWidget(

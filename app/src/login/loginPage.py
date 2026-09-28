@@ -69,10 +69,29 @@ class LoginPage(QtWidgets.QWidget):
         )
 
         # -------------------------
+        # Login error
+        # -------------------------
+
+        self.loginError = QtWidgets.QLabel(
+            "Incorrect username or password",
+            self
+        )
+
+        self.loginError.setStyleSheet(
+            "color: red;"
+        )
+
+        self.loginError.hide()
+
+        # -------------------------
         # Login button
         # -------------------------
 
-        self.loginButton = QtWidgets.QPushButton("Login", self)
+        self.loginButton = QtWidgets.QPushButton(
+            "Login",
+            self
+        )
+
         self.loginButton.setDefault(True)
 
         # -------------------------
@@ -163,6 +182,14 @@ class LoginPage(QtWidgets.QWidget):
             self.psw
         )
 
+        # -------------------------
+        # Login error
+        # -------------------------
+
+        layout.addWidget(
+            self.loginError
+        )
+
         layout.addSpacing(
             10
         )
@@ -191,10 +218,28 @@ class LoginPage(QtWidgets.QWidget):
 
     def login(self):
 
-        userName = self.userName.text()
+        userName = self.userName.text().strip()
         psw = self.psw.text()
+
+        # Hide previous error when trying again
+        self.loginError.hide()
+
+        if not userName or not psw:
+            return
 
         self.loginClicked.emit(
             userName,
             psw
         )
+
+    # =====================================================
+    # LOGIN ERROR
+    # =====================================================
+
+    def showLoginError(self):
+
+        self.loginError.show()
+
+    def hideLoginError(self):
+
+        self.loginError.hide()

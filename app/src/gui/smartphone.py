@@ -88,14 +88,14 @@ class SmartphoneApi(GuiCalender):
         topLayout = QtWidgets.QHBoxLayout()
 
         topLayout.setContentsMargins(
-            0,
-            0,
-            0,
-            0
+            15,
+            5,
+            15,
+            5
         )
 
         topLayout.setSpacing(
-            0
+            20
         )
 
         topLayout.addWidget(
