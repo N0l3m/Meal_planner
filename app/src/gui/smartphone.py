@@ -57,11 +57,11 @@ class SmartphoneApi(GuiCalender):
         # -------------------------
 
         self.table.horizontalHeader().setFixedHeight(
-            45
+            35
         )
 
         self.table.verticalHeader().setDefaultSectionSize(
-            70
+            45
         )
 
         self.table.verticalHeader().setMinimumWidth(
