@@ -128,8 +128,15 @@ class GuiCalender(QtWidgets.QWidget):
         # Buttons
         # -------------------------
 
-        self.undoButton = QtWidgets.QPushButton("↶")
-        self.redoButton = QtWidgets.QPushButton("↷")
+        self.undoButton = QtWidgets.QPushButton(
+            "↩",
+            self
+        )
+
+        self.redoButton = QtWidgets.QPushButton(
+            "↪",
+            self
+        )
 
         self.clearTable = QtWidgets.QPushButton(
             "Clear",
