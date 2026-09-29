@@ -7,6 +7,11 @@ from PySide6 import QtCore, QtWidgets, QtGui
 
 class ToggleComboBox(QtWidgets.QComboBox):
 
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.setEditable(True)
+
     def mouseReleaseEvent(self, event):
 
         if self.view().isVisible():
@@ -16,6 +21,41 @@ class ToggleComboBox(QtWidgets.QComboBox):
 
         event.accept()
 
+    def paintEvent(self, event):
+
+        super().paintEvent(event)
+
+        painter = QtGui.QPainter(self)
+        painter.setRenderHint(
+            QtGui.QPainter.Antialiasing
+        )
+
+        # Couleur de la flèche
+        painter.setPen(
+            QtGui.QPen(
+                QtGui.QColor("#AFCBEB"),
+                2
+            )
+        )
+
+        # Position de la flèche
+        x = self.width() - 20
+        y = self.height() // 2
+
+        # Petite flèche vers le bas
+        painter.drawLine(
+            x - 5,
+            y - 2,
+            x,
+            y + 3
+        )
+
+        painter.drawLine(
+            x,
+            y + 3,
+            x + 5,
+            y - 2
+        )
 
 # =========================================================
 # PLANNER ITEM
@@ -245,6 +285,7 @@ class PlannerListPage(QtWidgets.QWidget):
         # Owner combo style
         # -------------------------
 
+
         self.ownerComboBox.setStyleSheet(
             """
             QComboBox {
@@ -252,24 +293,21 @@ class PlannerListPage(QtWidgets.QWidget):
                 border: 1px solid #AFCBEB;
                 border-radius: 6px;
                 padding: 8px;
-                padding-right: 30px;
+                padding-right: 35px;
                 font-size: 14px;
             }
 
             QComboBox::drop-down {
-                width: 30px;
+                width: 35px;
                 border: none;
-            }
-
-            QComboBox::down-arrow {
-                width: 12px;
-                height: 12px;
+                background: transparent;
             }
 
             QLineEdit {
                 background-color: transparent;
                 border: none;
                 padding: 0px;
+                padding-right: 5px;
                 font-size: 14px;
             }
             """
@@ -539,6 +577,10 @@ class PlannerListPage(QtWidgets.QWidget):
 
         layout.addLayout(
             joinLayout
+        )
+
+        layout.addSpacing(
+            75
         )
 
         self.setLayout(
