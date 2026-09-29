@@ -24,7 +24,7 @@ class LoginPage(QtWidgets.QWidget):
         # -------------------------
 
         titleFont = QtGui.QFont()
-        titleFont.setPointSize(18)
+        titleFont.setPointSize(24)
         titleFont.setBold(True)
 
         self.title = QtWidgets.QLabel(

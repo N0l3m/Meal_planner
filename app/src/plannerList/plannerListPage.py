@@ -59,7 +59,7 @@ class OwnerComboBox(QtWidgets.QWidget):
         )
 
         arrowFont = QtGui.QFont()
-        arrowFont.setPointSize(18)
+        arrowFont.setPointSize(22)
         arrowFont.setBold(True)
 
         self.arrowLabel.setFont(arrowFont)
@@ -122,7 +122,7 @@ class PlannerItemWidget(QtWidgets.QWidget):
         # -------------------------
 
         nameFont = QtGui.QFont()
-        nameFont.setPointSize(18)
+        nameFont.setPointSize(24)
         nameFont.setBold(True)
 
         ownerFont = QtGui.QFont()
@@ -195,7 +195,7 @@ class PlannerListPage(QtWidgets.QWidget):
         # -------------------------
 
         titleFont = QtGui.QFont()
-        titleFont.setPointSize(18)
+        titleFont.setPointSize(24)
         titleFont.setBold(True)
 
         self.title = QtWidgets.QLabel(
@@ -237,9 +237,9 @@ class PlannerListPage(QtWidgets.QWidget):
 
         self.plannerList = QtWidgets.QListWidget()
 
-        # -------------------------
-        # Create planner
-        # -------------------------
+        # =================================================
+        # CREATE PLANNER
+        # =================================================
 
         self.createPlannerName = QtWidgets.QLineEdit()
 
@@ -251,16 +251,13 @@ class PlannerListPage(QtWidgets.QWidget):
             "Create"
         )
 
-        self.createPlannerButton.setFixedWidth(
-            100
-        )
-
         createStyle = """
         QLineEdit {
             background-color: #3F6FA3;
             border: 1px solid #AFCBEB;
             border-radius: 6px;
             padding: 6px;
+            font-size: 14px;
         }
 
         QPushButton {
@@ -268,6 +265,7 @@ class PlannerListPage(QtWidgets.QWidget):
             border: 1px solid #AFCBEB;
             border-radius: 6px;
             padding: 6px;
+            font-size: 14px;
         }
 
         QPushButton:hover {
@@ -283,50 +281,17 @@ class PlannerListPage(QtWidgets.QWidget):
             createStyle
         )
 
-        # -------------------------
-        # Join planner
-        # -------------------------
-
-        joinStyle = """ 
-        QLineEdit { 
-        background-color: #3F7A5A; 
-        border: 1px solid #AFCBEB; 
-        border-radius: 6px; 
-        padding: 8px; 
-        font-size: 14px; 
-        } 
-        
-        QComboBox { 
-        background-color: #3F7A5A; 
-        border: 1px solid #AFCBEB; 
-        border-radius: 6px; 
-        padding: 8px; 
-        padding-right: 30px; 
-        font-size: 14px; 
-        } 
-        
-        QComboBox::drop-down { 
-        border: none; 
-        width: 30px; 
-        background: transparent; 
-        } 
-        
-        
-        QPushButton { 
-        background-color: #3F7A5A; 
-        border: 1px solid #AFCBEB; 
-        border-radius: 6px; 
-        padding: 8px; 
-        font-size: 14px; 
-        } 
-        
-        QPushButton:hover { 
-        background-color: #326247; 
-        } """
+        # =================================================
+        # JOIN PLANNER
+        # =================================================
 
         self.ownerComboBox = OwnerComboBox()
 
         combo = self.ownerComboBox.comboBox
+
+        # -------------------------
+        # Completer
+        # -------------------------
 
         self.ownerCompleter = QtWidgets.QCompleter(
             combo.model(),
@@ -345,43 +310,84 @@ class PlannerListPage(QtWidgets.QWidget):
             self.ownerCompleter
         )
 
+        # -------------------------
+        # Planner name
+        # -------------------------
+
         self.joinPlannerName = QtWidgets.QLineEdit()
 
         self.joinPlannerName.setPlaceholderText(
             "Plan. name to join"
         )
 
+        # -------------------------
+        # Join button
+        # -------------------------
+
         self.joinPlannerButton = QtWidgets.QPushButton(
             "Join"
         )
 
-        self.joinPlannerButton.setFixedWidth(100)
+        joinStyle = """
+        QLineEdit {
+            background-color: #3F7A5A;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 14px;
+        }
 
-        self.joinPlannerButton.setStyleSheet(
-            joinStyle
-        )
+        QPushButton {
+            background-color: #3F7A5A;
+            border: 1px solid #AFCBEB;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        QPushButton:hover {
+            background-color: #326247;
+        }
+        """
 
         self.joinPlannerName.setStyleSheet(
             joinStyle
         )
 
-        combo.setStyleSheet(
+        self.joinPlannerButton.setStyleSheet(
             joinStyle
         )
-        
+
+        # -------------------------
+        # Hauteur commune
+        # -------------------------
 
         widgetHeight = 45
-        self.createPlannerName.setFixedHeight(widgetHeight)
-        self.createPlannerButton.setFixedHeight(widgetHeight)
 
-        self.ownerComboBox.setFixedHeight(widgetHeight)
-        self.joinPlannerName.setFixedHeight(widgetHeight)
-        self.joinPlannerButton.setFixedHeight(100)
-        widgetWidth = 160
-        self.createPlannerName.setFixedWidth(widgetWidth)
-        self.ownerComboBox.setFixedWidth(widgetWidth)
-        self.createPlannerName.setFixedWidth(widgetWidth)
-        self.joinPlannerName.setFixedWidth(widgetWidth)
+        self.createPlannerName.setMinimumHeight(
+            widgetHeight
+        )
+
+        self.createPlannerButton.setMinimumHeight(
+            widgetHeight
+        )
+
+        self.ownerComboBox.setMinimumHeight(
+            widgetHeight
+        )
+
+        self.joinPlannerButton.setMinimumHeight(
+            widgetHeight
+        )
+
+        self.joinPlannerButton.setSizePolicy(
+            QtWidgets.QSizePolicy.Expanding,
+            QtWidgets.QSizePolicy.Expanding
+        )
+
+        self.joinPlannerButton.setMinimumHeight(
+            widgetHeight
+        )
 
     # =====================================================
     # CONNECTIONS
@@ -424,9 +430,7 @@ class PlannerListPage(QtWidgets.QWidget):
             5
         )
 
-        topLayout.setSpacing(
-            0
-        )
+        topLayout.setSpacing(0)
 
         topLayout.addWidget(
             self.backToLoginButton
@@ -440,27 +444,31 @@ class PlannerListPage(QtWidgets.QWidget):
 
         topLayout.addStretch()
 
-        topLayout.addSpacing(
-            33
-        )
+        topLayout.addSpacing(33)
 
-        # -------------------------
-        # Create planner
-        # -------------------------
+        # =================================================
+        # CREATE
+        # =================================================
 
         createLayout = QtWidgets.QHBoxLayout()
 
+        createLayout.setSpacing(10)
+
+        # 75 %
         createLayout.addWidget(
-            self.createPlannerName
+            self.createPlannerName,
+            3
         )
 
+        # 25 %
         createLayout.addWidget(
-            self.createPlannerButton
+            self.createPlannerButton,
+            1
         )
 
-        # -------------------------
-        # Join planner
-        # -------------------------
+        # =================================================
+        # JOIN
+        # =================================================
 
         joinLayout = QtWidgets.QGridLayout()
 
@@ -472,33 +480,67 @@ class PlannerListPage(QtWidgets.QWidget):
             5
         )
 
-        # Owner
-        joinLayout.addWidget(
-            self.ownerComboBox,
-            1, 0
-        )
-
+        # -------------------------
         # Planner name
+        # -------------------------
+
         joinLayout.addWidget(
             self.joinPlannerName,
-            0, 0
+            0,
+            0
         )
 
+        # -------------------------
+        # Owner
+        # -------------------------
+
+        joinLayout.addWidget(
+            self.ownerComboBox,
+            1,
+            0
+        )
+
+        # -------------------------
         # Join button
+        # -------------------------
+
         joinLayout.addWidget(
             self.joinPlannerButton,
-            0, 1, 2, 1
+            0,
+            1,
+            2,
+            1
+        )
+
+        # -------------------------
+        # Proportions
+        # -------------------------
+
+        # Colonne gauche : 75 %
+        # Colonne droite : 25 %
+
+        joinLayout.setColumnStretch(
+            0,
+            3
         )
 
         joinLayout.setColumnStretch(
             1,
-            0
+            1
         )
-        # -------------------------
-        # Main layout
-        # -------------------------
+
+        # =================================================
+        # MAIN LAYOUT
+        # =================================================
 
         layout = QtWidgets.QVBoxLayout()
+
+        layout.setContentsMargins(
+            10,
+            5,
+            10,
+            10
+        )
 
         layout.addLayout(
             topLayout
@@ -554,9 +596,14 @@ class PlannerListPage(QtWidgets.QWidget):
     # =====================================================
 
     def joinPlanner(self):
+
         name = self.joinPlannerName.text().strip()
 
-        ownerName = self.ownerComboBox.currentText().strip()
+        ownerName = (
+            self.ownerComboBox
+            .currentText()
+            .strip()
+        )
 
         if not name:
             return
@@ -582,7 +629,16 @@ class PlannerListPage(QtWidgets.QWidget):
         )
 
         self.joinPlannerName.clear()
-        self.ownerComboBox.setCurrentIndex(-1)
+
+        self.ownerComboBox.setCurrentIndex(
+            -1
+        )
+
+        self.ownerComboBox.lineEdit().clear()
+
+        self.ownerComboBox.lineEdit().setPlaceholderText(
+            "Owner"
+        )
 
     # =====================================================
     # SELECT PLANNER
@@ -663,7 +719,11 @@ class PlannerListPage(QtWidgets.QWidget):
     # AVAILABLE OWNERS
     # =====================================================
 
-    def setAvailablePlanners(self, planners):
+    def setAvailablePlanners(
+        self,
+        planners
+    ):
+
         self.ownerComboBox.clear()
 
         owners = {}
@@ -671,6 +731,7 @@ class PlannerListPage(QtWidgets.QWidget):
         for planner in planners:
 
             ownerId = planner["ownerId"]
+
             ownerName = planner["ownerName"]
 
             owners[ownerId] = ownerName
@@ -682,9 +743,16 @@ class PlannerListPage(QtWidgets.QWidget):
                 ownerId
             )
 
-        # Aucun owner sélectionné par défaut
-        self.ownerComboBox.setCurrentIndex(-1)
+        # -------------------------
+        # Aucun owner sélectionné
+        # -------------------------
+
+        self.ownerComboBox.setCurrentIndex(
+            -1
+        )
+
         self.ownerComboBox.lineEdit().clear()
+
         self.ownerComboBox.lineEdit().setPlaceholderText(
             "Owner"
         )

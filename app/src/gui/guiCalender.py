@@ -89,7 +89,7 @@ class GuiCalender(QtWidgets.QWidget):
         titleFont = QtGui.QFont()
 
         titleFont.setPointSize(
-            18
+            24
         )
 
         titleFont.setBold(
@@ -144,7 +144,7 @@ class GuiCalender(QtWidgets.QWidget):
         )
 
         buttonSize = QtCore.QSize(
-            80,
+            100,
             35
         )
 

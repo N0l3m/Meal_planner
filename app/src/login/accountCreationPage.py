@@ -24,11 +24,11 @@ class AccountCreationPage(QtWidgets.QWidget):
         # -------------------------
 
         titleFont = QtGui.QFont()
-        titleFont.setPointSize(18)
+        titleFont.setPointSize(24)
         titleFont.setBold(True)
 
         self.title = QtWidgets.QLabel(
-            "Meal Planner",
+            "Account Creation",
             alignment=QtCore.Qt.AlignCenter,
             font=titleFont
         )
