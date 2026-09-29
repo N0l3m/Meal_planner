@@ -10,17 +10,6 @@ class ToggleComboBox(QtWidgets.QComboBox):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.setEditable(True)
-
-    def mouseReleaseEvent(self, event):
-
-        if self.view().isVisible():
-            self.hidePopup()
-        else:
-            self.showPopup()
-
-        event.accept()
-
     def paintEvent(self, event):
 
         super().paintEvent(event)
@@ -30,7 +19,6 @@ class ToggleComboBox(QtWidgets.QComboBox):
             QtGui.QPainter.Antialiasing
         )
 
-        # Couleur de la flèche
         painter.setPen(
             QtGui.QPen(
                 QtGui.QColor("#AFCBEB"),
@@ -38,11 +26,9 @@ class ToggleComboBox(QtWidgets.QComboBox):
             )
         )
 
-        # Position de la flèche
         x = self.width() - 20
         y = self.height() // 2
 
-        # Petite flèche vers le bas
         painter.drawLine(
             x - 5,
             y - 2,
@@ -56,7 +42,7 @@ class ToggleComboBox(QtWidgets.QComboBox):
             x + 5,
             y - 2
         )
-
+        
 # =========================================================
 # PLANNER ITEM
 # =========================================================
