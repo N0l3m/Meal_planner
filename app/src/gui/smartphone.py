@@ -13,10 +13,6 @@ class SmartphoneApi(GuiCalender):
         self.titleFont.setPointSize(20)
 
     def setPhoneTableConfig(self):
-
-        # 7 lignes : Monday -> Sunday
-        # 2 colonnes : Lunch / Dinner
-
         self.table.setRowCount(7)
         self.table.setColumnCount(2)
 
@@ -27,6 +23,10 @@ class SmartphoneApi(GuiCalender):
         self.table.setVerticalHeaderLabels(
             self.days
         )
+
+        # -------------------------
+        # Fonts
+        # -------------------------
 
         tableFont = QtGui.QFont()
         tableFont.setPointSize(12)
@@ -41,7 +41,7 @@ class SmartphoneApi(GuiCalender):
         )
 
         # -------------------------
-        # Taille des cellules
+        # Row sizes
         # -------------------------
 
         self.table.verticalHeader().setSectionResizeMode(
@@ -49,19 +49,15 @@ class SmartphoneApi(GuiCalender):
         )
 
         self.table.verticalHeader().setDefaultSectionSize(
-            50
+            45
         )
 
         # -------------------------
-        # Taille des headers
+        # Header sizes
         # -------------------------
 
         self.table.horizontalHeader().setFixedHeight(
             35
-        )
-
-        self.table.verticalHeader().setDefaultSectionSize(
-            45
         )
 
         self.table.verticalHeader().setMinimumWidth(
@@ -73,7 +69,21 @@ class SmartphoneApi(GuiCalender):
         )
 
         # -------------------------
-        # Initialize table
+        # Table height
+        # -------------------------
+
+        tableHeight = (
+            35 +       # horizontal header
+            7 * 45 +   # rows
+            2          # borders
+        )
+
+        self.table.setFixedHeight(
+            tableHeight
+        )
+
+        # -------------------------
+        # Initialize
         # -------------------------
 
         self.table.initializeTable()
@@ -119,12 +129,10 @@ class SmartphoneApi(GuiCalender):
         )
 
         # -------------------------
-        # Undo / Redo / Clear
+        # Buttons
         # -------------------------
 
-        layout.addLayout(
-            self.buttonLayout
-        )
+        layout.addLayout(self.buttonLayout)
 
         # -------------------------
         # Table
